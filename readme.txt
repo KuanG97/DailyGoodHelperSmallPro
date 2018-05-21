@@ -1,1 +1,1 @@
-this spend GPL!branch dev built!
+this spend GPL!test master new but branch not new!
