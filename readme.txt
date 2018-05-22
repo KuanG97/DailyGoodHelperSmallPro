@@ -1,1 +1,0 @@
-this spend GPL!test new mas & dev!
