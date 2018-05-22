@@ -1,0 +1,81 @@
+/* pages/template/reportList/reportList.wxss */
+Page{
+  font-size:28rpx;
+  background: #eee;
+}
+.msgCell{
+  width: 710rpx;
+  height: 90rpx;
+  padding: 12rpx 20rpx;
+  background: #fff;
+  border-top: 1px solid #eee;
+  position: relative;
+  margin: 0;
+}
+.H{
+  height: 110rpx;
+}
+.msgImg{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 45rpx;
+  /* border: 1px solid #000; */
+}
+.msgYImg{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  margin-top: 5rpx;
+}
+.msgType{
+  position: absolute;
+  top: 15rpx;
+  left: 125rpx;
+  /* 最多四个字 */
+  width: 160rpx;
+  font-size: 40rpx;
+  line-height: 70rpx;
+  color: #3399ff;
+}
+.msgYType{
+  left: 145rpx;
+  width: 200rpx;
+  font-size: 40rpx;
+  line-height: 110rpx;
+}
+.msgMsg{
+
+}
+.msgTime{
+  position: absolute;
+  bottom: 15rpx;
+  left: 125rpx;
+  color: #e3e3e3;
+  font-size: 20rpx;
+}
+.msgPrice{
+  position: absolute;
+  top: 15rpx;
+  right: 20rpx;
+  font-size: 35rpx;
+  line-height: 70rpx;
+  color: red;
+}
+.msgPriceIn{
+  position: absolute;
+  top: 15rpx;
+  right: 20rpx;
+  font-size: 35rpx;
+  line-height: 70rpx;
+  color: green;
+}
+.YPriceT{
+  font-size: 30rpx;
+  line-height: 55rpx;
+}
+.YPriceB{
+  font-size: 30rpx;
+  line-height: 55rpx;
+  top: auto;
+  bottom: 15rpx;
+}

@@ -1,0 +1,55 @@
+<!-- 支出报表.xml -->
+  <view class='TabBox'>
+    <view class='groupTab groupTab1'>
+      <view id="{{id1}}" class="right changeBGFFF}}">支出</view>
+      <view id="{{id2}}" class="left" bindtap="NavChange">收入</view>
+    </view>
+    <view class='groupTab groupTab2'>
+      <view id="{{id3}}" class="right {{currentTab==0 ? 'changeBGFFF' : 'comman'}}" data-current="0" bindtap="swichNav">周</view>
+      <view id="{{id4}}" class="center {{currentTab==1 ? 'changeBGFFF' : 'comman'}}" data-current="1" bindtap="swichNav">月</view>
+      <view id="{{id5}}" class="left {{currentTab==2 ? 'changeBGFFF' : 'comman'}}" data-current="2" bindtap="swichNav">年</view>
+    </view>
+    <view class="DateBox {{currentTab==0 ? '' : 'hidden'}}">{{setWeek}}<span class='small'>日</span></view>
+    <view class="DateBox {{currentTab==1 ? '' : 'hidden'}}">{{setMonth}}<span class='small'>月</span></view>
+    <view class="DateBox {{currentTab==2 ? '' : 'hidden'}}">{{setYear}}<span class='small'>年</span></view>
+  </view>
+
+<!-- 报表标签内容 -->
+<view class='contain'>
+    <!-- 周 -->  
+    <view hidden='{{hiddenW?true:false}}'>
+        <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler" ></canvas>
+        <!-- 列表模板 -->
+        <import src="../../template/reportList/reportList.wxml"/>
+        <view class='marTop28'>
+          <view wx:for="{{reportListZ}}" wx:for-item="item">
+            <template is="reportList" data="{{...item}}"></template>
+          </view>
+        </view>
+    </view><!-- 周END -->
+
+    <!-- 月 -->  
+    <view hidden='{{hiddenM?true:false}}'>
+        <canvas canvas-id="lineCanvas1" disable-scroll="true" class="canvas" bindtouchstart="touchHandler1"></canvas>
+        <!-- 列表模板 -->
+        <import src="../../template/reportList/reportList.wxml"/>
+        <view class='marTop28'>
+          <view wx:for="{{reportListM}}" wx:for-item="item">
+            <template is="reportList" data="{{...item}}"></template>
+          </view>
+        </view>
+    </view><!-- 月END -->
+
+    <!-- 年 -->
+    <view hidden='{{hiddenY?true:false}}'>
+        <canvas canvas-id="lineCanvas2" disable-scroll="true" class="canvas" bindtouchstart="touchHandler2"  hidden='{{hiddenY?true:false}}'></canvas>
+        <!-- 列表模板 -->
+        <import src="../../template/reportYList/reportYList.wxml"/>
+        <view class='marTop28'>
+          <view wx:for="{{reportListY}}" wx:for-item="item">
+            <template is="reportList" data="{{...item}}"></template>
+          </view>
+        </view>
+    </view><!-- 年END -->
+
+</view><!-- contain -->

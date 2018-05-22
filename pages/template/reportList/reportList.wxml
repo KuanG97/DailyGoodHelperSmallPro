@@ -1,0 +1,8 @@
+<template name="reportList">
+<view class='msgCell'>
+  <image class='msgImg' src='{{img}}'></image>
+  <view class='msgType'>{{title}}</view>
+  <view class='msgTime'>{{time}}</view>
+  <view class='msgPrice'>-{{price}}</view>
+</view>
+</template>

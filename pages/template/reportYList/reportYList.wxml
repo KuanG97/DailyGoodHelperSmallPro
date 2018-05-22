@@ -1,0 +1,8 @@
+<template name="reportList">
+<view class='msgCell H'>
+  <image class='msgYImg' src='{{img}}'></image>
+  <view class='msgType msgYType'>{{year}}年{{month}}月</view>
+  <view class='msgPrice YPriceT'>总支出：-{{spanding}}</view>
+  <view class='msgPriceIn YPriceB'>总收入:+{{income}}</view>
+</view>
+</template>
