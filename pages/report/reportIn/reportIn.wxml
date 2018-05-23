@@ -9,6 +9,19 @@
       <view id="{{id4}}" class="center {{currentTab==1 ? 'changeBGFFF' : 'comman'}}" data-current="1" bindtap="swichNav">月</view>
       <view id="{{id5}}" class="left {{currentTab==2 ? 'changeBGFFF' : 'comman'}}" data-current="2" bindtap="swichNav">年</view>
     </view>
+    <view class="DateBox {{currentTab==0 ? '' : 'hidden'}}">
+      <picker bindchange="bindWeekPickerChange" value="{{weekIndex}}" range="{{weekPicker}}">
+        <view class="weui-input"><span class='small'>第</span>{{weekPicker[weekIndex]}}<span class='small'>周</span></view>
+      </picker>
+      <view class='select_img'></view>
+    </view>
+    <view class="DateBox {{currentTab==1 ? '' : 'hidden'}}">
+      <picker bindchange="bindMonthPickerChange" value="{{monthIndex}}" range="{{monthPicker}}">
+        <view class="weui-input">{{monthPicker[monthIndex]}}<span class='small'>月</span></view>
+      </picker>
+      <view class='select_img'></view>
+    </view>
+    <view class="DateBox {{currentTab==2 ? '' : 'hidden'}}">{{setYear}}<span class='small'>年</span></view>
   </view>
 
 <!-- 报表标签内容 -->

@@ -35,8 +35,6 @@
 .groupTab{
   display: flex;
   flex-direction: row;
-  border: 1px solid #fff;
-  border-radius: 25rpx;
 }
 .groupTab1{
   width: 208rpx;
@@ -44,14 +42,6 @@
 }
 .groupTab2{
   width: 312rpx;
-}
-.DateBox{
-  position: absolute;
-  top: 0;
-  right:15rpx;
-  font-weight: 0;
-  font-size: 100rpx;
-  line-height: 150rpx;
 }
 .small{
   margin-top:0rpx; 
@@ -63,13 +53,11 @@
   height: 50rpx;
   line-height: 50rpx;
   padding: 5rpx 12rpx;
+  border:1px solid #fff;
 }
 .groupTab .right{
   border-top-left-radius: 25rpx;
   border-bottom-left-radius: 25rpx;
-}
-.groupTab .center{
-  border-left: 1px solid #fff;
 }
 .groupTab .left{
   border-left: 1px solid #fff;
@@ -98,4 +86,24 @@
 }
 .hidden{
   display: none;
+}
+.DateBox{
+  position: absolute;
+  top: 0;
+  right:40rpx;
+  font-weight: 0;
+  font-size: 100rpx;
+  line-height: 150rpx;
+}
+.select_img{
+  width: 0;
+  height: 0;
+  border: 12rpx solid;
+  border-top-color: #fff;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  position: absolute;
+  bottom: 25rpx;
+  right: -25rpx;
 }
