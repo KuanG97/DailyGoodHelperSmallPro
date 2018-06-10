@@ -1,0 +1,22 @@
+<view class='content'>
+  <!-- 时间picker -->
+  <view class='pickerBox'>
+    <view class="pickerBTitle">计划最终实现时间</view>
+    <view class="pickerSTitle">距离梦想"{{things[index].thing}}"还有{{week}}周</view>
+    <picker mode="date" value="{{dayValue}}" start="{{startValue}}" end="{{endValue}}" bindchange="bindDateChange">
+      <view class="picker">
+        <text>{{dayValue}}</text><image class='pickerImg' src='/images/things/Bright.png'></image>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 显示框 -->
+  <view class='msgBox'>
+    <view class='tTitle'>建议每周存款的金额</view>
+    <view class='price'>{{priceAverage}}<text class='sText' decode='true'> 元</text></view>
+    <view class='bTitle'>若定投货币基金还可获得额外收益</view>
+  </view>
+  
+</view>
+
+  <button hover-class='button' bindtap='planOk'>确定跟进计划</button>

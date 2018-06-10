@@ -1,0 +1,212 @@
+<view class="page">  
+  
+  <!--顶部导航栏 --> 
+ 
+  <view class='swiper-tab0'>
+    <view class="tab-item {{currentTab==0 ? 'on-left' : 'left'}}" data-current="0" bindtap="swichNav">支出 </view>  
+    <view class="tab-item {{currentTab==1 ? 'on-right': 'right'}}" data-current="1" bindtap="swichNav">收入</view> 
+  </view> 
+
+ <!--内容主体-->  
+  <swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChange">  
+   <!--支出-->  
+    <swiper-item>  
+      <view  >  
+         <view class='btnGroup relative' >
+              
+                <view class="icon {{(iconTab==1)?'icon2':'icon'}}" id='0' bindtap='textChange'>       
+                          <view class='icon-pos '>   
+                            <image class='icon-in' data-iconcurrent="1"
+                            src='{{(iconTab==1)?imageList[0].hoverUrl:imageList[0].url}}'></image>  
+                          </view>
+                      
+                      <view class="text2 {{(iconTab==1)?'on-text2':'text2'}}"  bindtap="btnDisplay">交通</view>       
+                </view>
+
+
+                <view class="icon {{(iconTab==2)?'icon2':'icon'}}"id='1' bindtap='textChange'>
+                    <view class='icon-pos'>
+                        <image class='icon-in'  data-iconcurrent="2"
+                            src='{{(iconTab==2)?imageList[1].hoverUrl:imageList[1].url}}'></image>  
+                    </view>
+                    <view class="text2 {{(iconTab==2)?'on-text2':'text2'}}" bindtap="btnDisplay">饮食</view>
+                </view>
+
+
+                <view class="icon {{(iconTab==3)?'icon2':'icon'}}"id='2' bindtap='textChange'>
+                    <view class='icon-pos'>
+                        <image class='icon-in'  data-iconcurrent="3"
+                            src='{{(iconTab==3)?imageList[2].hoverUrl:imageList[2].url}}'></image>  
+                    </view>
+                    <view class="text2 {{(iconTab==3)?'on-text2':'text2'}}" bindtap="btnDisplay">娱乐</view>
+                </view>
+
+
+                <view class="icon {{(iconTab==4)?'icon2':'icon'}}"id='3' bindtap='textChange'>
+                    <view class='icon-pos'>
+                        <image class='icon-in'  data-iconcurrent="4"
+                            src='{{(iconTab==4)?imageList[3].hoverUrl:imageList[3].url}}'></image>  
+                    </view>
+                    <view class="text2 {{(iconTab==4)?'on-text2':'text2'}}" bindtap="btnDisplay">服饰</view>
+                </view>
+
+         </view>
+          
+        
+          <view class='btnGroup relative2'>
+
+                <view class="icon {{(iconTab==5)?'icon2':'icon'}}"id='4' bindtap='textChange'>
+                  <view class='icon-pos'> 
+                        <image class='icon-in'  data-iconcurrent="5"
+                            src='{{(iconTab==5)?imageList[4].hoverUrl:imageList[4].url}}'></image>
+                  </view>
+                    <view  class="text2 {{(iconTab==5)?'on-text2':'text2'}}" bindtap="btnDisplay">住房</view>
+                </view>
+
+
+                <view class="icon {{(iconTab==6)?'icon2':'icon'}}"id='5' bindtap='textChange'>
+                  <view class='icon-pos'> 
+                        <image class='icon-in'  data-iconcurrent="6"
+                            src='{{(iconTab==6)?imageList[6].hoverUrl:imageList[6].url}}'></image>
+                  </view>
+                    <view class="text2 {{(iconTab==6)?'on-text2':'text2'}}" bindtap="btnDisplay">社交</view>
+                </view>
+
+
+                <view class="icon {{(iconTab==7)?'icon2':'icon'}}"id='6' bindtap='textChange'>
+                  <view class='icon-pos'> 
+                        <image  class='icon-in'  data-iconcurrent="7"
+                            src='{{(iconTab==7)?imageList[5].hoverUrl:imageList[5].url}}'></image>
+                  </view>
+                    <view  class="text2 {{(iconTab==7)?'on-text2':'text2'}}" bindtap="btnDisplay">技能</view>
+                </view>
+
+             
+
+                <view class="icon {{(iconTab==8)?'icon2':'icon'}}"id='7' bindtap='textChange'>
+                  <view class='icon-pos'> 
+                        <image class='icon-in'  data-iconcurrent="8"
+                            src='{{(iconTab==8)?imageList[7].hoverUrl:imageList[7].url}}'></image>
+                  </view>
+                    <view  class="text2 {{(iconTab==8)?'on-text2':'text2'}}" bindtap="btnDisplay">其他</view>
+                </view>
+
+          </view>
+
+         <view class='relative3'>
+                <view class="icon {{(iconTab==9)?'icon2':'icon'}}"id='8' bindtap='textChange'>
+                  <view class='icon-pos'> 
+                      <image class='icon-in'  data-iconcurrent="9"
+                            src='{{(iconTab==9)?imageList[8].hoverUrl:imageList[8].url}}'></image>
+                  </view>
+                    <view  class="text2 {{(iconTab==9)?'on-text2':'text2'}}">自定义</view>
+                </view>
+        </view>
+        
+      </view>  
+    </swiper-item>  
+    
+     <!--收入-->  
+    <swiper-item>  
+      <view>
+          <view class="btnGroup relative">
+              
+                
+                
+                 <view class="icon {{(iconTab==10)?'icon2':'icon'}}" id='9' bindtap='textChange'>
+                  <view class='icon-pos'> 
+                      <image class='icon-in'  data-iconcurrent="10"
+                            src='{{(iconTab==10)?imageList[9].hoverUrl:imageList[9].url}}'></image>
+                  </view>
+                    <view  class="text2 {{(iconTab==10)?'on-text2':'text2'}}">工资</view>
+                </view>
+
+                <view class="icon {{(iconTab==11)?'icon2':'icon'}}" id='10' bindtap='textChange'>
+                  <view class='icon-pos'> 
+                      <image class='icon-in'  data-iconcurrent="11"
+                            src='{{(iconTab==11)?imageList[10].hoverUrl:imageList[10].url}}'></image>
+                  </view>
+                    <view  class="text2 {{(iconTab==11)?'on-text2':'text2'}}">兼职</view>
+                </view>
+
+                <view class="icon {{(iconTab==12)?'icon2':'icon'}}" id='11' bindtap='textChange'>
+                  <view class='icon-pos'> 
+                      <image class='icon-in'  data-iconcurrent="12"
+                            src='{{(iconTab==12)?imageList[11].hoverUrl:imageList[11].url}}'></image>
+                  </view>
+                    <view  class="text2 {{(iconTab==12)?'on-text2':'text2'}}">理财</view>
+                </view>
+
+               <view class="icon {{(iconTab==13)?'icon2':'icon'}}"id='12' bindtap='textChange'>
+                  <view class='icon-pos'> 
+                      <image class='icon-in'  data-iconcurrent="13"
+                            src='{{(iconTab==13)?imageList[12].hoverUrl:imageList[12].url}}'></image>
+                  </view>
+                    <view  class="text2 {{(iconTab==13)?'on-text2':'text2'}}">其他</view>
+                </view>
+        
+          </view>
+
+           <view class='relative4'>
+            
+                <view class="icon {{(iconTab==14)?'icon2':'icon'}}" id='13' bindtap='textChange'>
+                  <view class='icon-pos'> 
+                      <image class='icon-in'  data-iconcurrent="14"
+                            src='{{(iconTab==14)?imageList[13].hoverUrl:imageList[13].url}}'></image>
+                  </view>
+                    <view  class="text2 {{(iconTab==14)?'on-text2':'text2'}}">自定义</view>
+                </view>
+           </view>
+      </view>  
+    </swiper-item>  
+  </swiper>  
+</view>  
+
+<form bindsubmit="formSubmit">
+<view class="content {{showView?'show':'hide'}}">
+<view class="section">
+<button class="{{showView?'':'hide'}} btnHide" bindtap='hideClac' type='primary'>
+  <image src='/images/things/btnHide.png'></image>
+</button>
+</view>
+  <view class="section">
+    <view class='inline'><view class='text'> 类型：</view><input value='{{textList[ID].name}}'></input></view>
+    <input placeholder="备注..." style='margin:0;' bindblur='getMsg'/>
+  </view>
+  <view class='screen'>{{result}}</view>
+
+  <view class='btnGroup'>
+    <button class='item blue' hover-class='other-button' id='{{b1}}' bindtap='clickBtn'>7</button>
+    <button class='item blue' hover-class='other-button' id='{{b2}}' bindtap='clickBtn'>8</button>
+    <button class='item blue' hover-class='other-button' id='{{b3}}' bindtap='clickBtn'>9</button>
+    <view class='item deepBule' hover-class='other-button' id='{{b4}}' bindtap='clickBtn'>  
+      <picker mode="date" value="{{date}}" start="2018-05-01" bindchange="bindDateChange">
+        <view class="picker">
+          时间: {{date}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class='btnGroup'>
+    <button class='item blue' hover-class='num-button' id='{{b5}}' bindtap='clickBtn'>4</button>
+    <button class='item blue' hover-class='num-button' id='{{b6}}' bindtap='clickBtn'>5</button>
+    <button class='item blue' hover-class='num-button' id='{{b7}}' bindtap='clickBtn'>6</button>
+    <button class='item deepBule' hover-class='other-button' id='{{b8}}' bindtap='clickBtn'>+</button>
+  </view>
+
+  <view class='btnGroup'>
+    <button class='item blue' hover-class='num-button' id='{{b9}}' bindtap='clickBtn'>1</button>
+    <button class='item blue' hover-class='num-button' id='{{b10}}' bindtap='clickBtn'>2</button>
+    <button class='item blue' hover-class='num-button' id='{{b11}}' bindtap='clickBtn'>3</button>
+    <button class='item deepBule' hover-class='other-button' id='{{b12}}' bindtap='clickBtn'>-</button>
+  </view>
+
+  <view class='btnGroup'>
+    <button class='item deepBule' hover-class='num-button' id='{{b13}}' bindtap='clickBtn'>.</button>
+    <button class='item blue' hover-class='num-button' id='{{b14}}' bindtap='clickBtn'>0</button>
+    <button class='item deepBule' hover-class='num-button' id='{{b15}}' bindtap='clickBtn'>←</button>
+    <button class='item deepBule' type='submit' hover-class='other-button' id='{{b16}}' bindtap='clickBtn'>提交</button>
+  </view>
+</view>
+</form>

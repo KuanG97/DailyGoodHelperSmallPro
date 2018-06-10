@@ -1,0 +1,72 @@
+.page1{
+   height: 100%;
+   font-size: 26rpx;
+   background-color: #f4f4f4;
+}
+
+.add-page{
+  display: flex;
+  flex-direction: column;
+  font-size: 32rpx;
+  color: #676767;
+  padding: 30rpx 0;
+ 
+}
+
+.mod-a{
+  padding: 0 20rpx;
+  border: 1px solid #f0f0f0;
+  background-color: #fff;
+}
+
+.mod{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90rpx;
+  padding: 0 20rpx;
+}
+
+
+.t-address, .t-sign-time, .t-time,.t-early{
+  border-bottom: 1px solid #f0f0f0;
+  text-align: right;
+}
+
+
+.mt20{
+  margin-top: 20rpx;
+}
+
+.t-name .input, .t-address .value{
+  text-align: right;
+  width: 510rpx;
+  overflow: hidden;
+ /*color: #b2b2b2;*/
+  height: 44rpx;
+}
+
+.t-address, .t-sign-time, .t-time,.t-early{
+  border-bottom: 1px solid #f0f0f0;
+  text-align: right;
+}
+
+.create{
+  margin-top: 80rpx;
+  padding: 0 26rpx;
+}
+.create .btn{
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #1FBBA6;
+  color: #fff;
+}
+.create .button-hover{
+  background-color: rgba(31,187,166,0.9);
+  color: #aadfc4;
+}
+
+.create .disabled{
+  opacity: 0.4
+}

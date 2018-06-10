@@ -1,0 +1,12 @@
+<form  bindsubmit='formSubmit'>
+  <view class='content'>
+    <view class='session'>
+      <view class='inputTitle'>存款金额</view>
+      <input placeholder="请输入你的存款金额，以便计划跟进统计" value='' type="number" name="price" bindblur='sumPrice'/>
+    </view>
+  </view>
+
+<button hover-class='button' formType="submit">确认记录</button>
+
+</form>
+

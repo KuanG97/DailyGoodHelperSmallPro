@@ -1,0 +1,149 @@
+/*页面偏移*/
+.page {  
+  margin-left: 25rpx;  
+  margin-right:25rpx; 
+  background-color: #fff;
+}  
+
+.swiper-tab {
+  width: 100%;
+  /*border-bottom: 1px solid #777;*/
+  text-align: center;
+  line-height: 80rpx;
+  background-color: #fff;
+}
+
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 25%;
+  color: #777;
+ 
+}
+.on {
+  color: #1FBBA6;
+  background-color: #fff; 
+  border-bottom:4rpx solid #1FBBA6;
+}
+
+/*---------------资产-------------*/
+ .allcount{
+   line-height: 50rpx;
+   width: 25%;
+   background-color: rgba(31,187,166,0.2);
+    font-size: 25rpx;
+    color:#777;
+    border-bottom-left-radius: 8rpx;
+    border-bottom-right-radius: 8rpx;
+ }
+
+.font
+{ 
+  font-size: 30rpx;
+  color: #777;
+  text-align: center;
+  line-height: 40rpx;
+  width: 100%;
+ /* background-color: rgba(31,187,166,0.2);*/
+  border-radius: 20rpx;
+}
+
+.management
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.every
+{
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  height: 170rpx;
+  width:100%;
+  
+}
+.row
+{ 
+  width: 150rpx;
+  height: 150rpx;
+  /*background-color: rgba(31,187,166,0.1);*/
+  border-radius: 10rpx;
+
+   display: flex;
+  flex-direction: column;
+}
+
+.col-in1{
+ width: 100%;
+ font-size: 18rpx;
+ text-align: center;
+ line-height:35rpx;
+ border-top-left-radius: 8rpx; 
+ border-top-right-radius: 8rpx;
+ color: #666;
+/* border-left: 1px solid #1FBBA6;
+ border-right: 1px solid #1FBBA6;
+ border-top: 1px solid #1FBBA6;*/
+}
+
+.col-in11{
+  font-size: 30rpx;
+ width: 100%;
+ text-align: center;
+ line-height:115rpx;
+ border-top-left-radius: 8rpx; 
+ border-top-right-radius: 8rpx;
+ color: #666;
+/* border-left: 1px solid #1FBBA6;
+ border-right: 1px solid #1FBBA6;
+ border-top: 1px solid #1FBBA6;*/
+ background-color: rgba(31,187,166,0.1);
+}
+
+.col-in2{
+ width: 100%;
+ font-size: 30rpx;
+ color: #666;
+ text-align: center;
+ line-height:80rpx;
+ background-color: rgba(31,187,166,0.1);
+ /*border-left: 1px solid #1FBBA6;
+ border-right: 1px solid #1FBBA6;*/
+}
+
+.col-in3{
+  width: 100%;
+  font-size: 18rpx;
+  text-align: center;
+  line-height:35rpx;
+  border-bottom-left-radius: 8rpx;
+   border-bottom-right-radius: 8rpx;
+   background-color: rgba(31,187,166,0.6);
+ color: #555;
+/* border-left: 1px solid #1FBBA6;
+ border-right: 1px solid #1FBBA6;
+ border-bottom: 1px solid #1FBBA6;*/
+}
+/*---------------资产-------------*/
+/*---------------负债-------------*/
+ 
+/*---------------负债-------------*/
+/*---------------收入-------------*/
+/*---------------收入-------------*/
+/*---------------支出-------------*/
+/*---------------支出-------------*/
+
+.swiper-box {
+  display: block;
+ /* height: 100%;
+  width: 100%;*/
+  overflow: hidden;
+  background: #fff;
+}
+
+
+.swiper-box view {
+  text-align: center;
+}

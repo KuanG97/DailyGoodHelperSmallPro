@@ -1,0 +1,153 @@
+<view > 
+
+  <view class="viewBox"> 
+     <view class='topBar'>
+
+        <!--自定义弹出层-->
+          <view bindtap="show">
+                <view class='iconbox'>
+                      <view class='whichYear'>
+                          <text>{{year}}年</text>
+                        </view>
+                        <view class='whichDate'>{{month}}月</view>
+                        <view class='icon'><image class='icon' src='/images/navigationBar/on.png'></image></view>
+                
+                </view>               
+          </view>
+         
+      </view>
+         
+
+  
+    <!--收入支出待办事项-->
+     <view class='moneyBox'>
+       
+        <view class='rowBox inter-rb'>
+          <view class='inter-high'><text>0.00</text></view>
+          <view class='inter-low'>收入</view>
+        </view >
+
+        <view class='lineBox'></view>
+
+        <view class='rowBox inter-rb'>
+          <view class='inter-high'>0.00</view>
+          <view class='inter-low'>支出</view>
+        </view>
+
+        <view class='lineBox'></view>
+
+        <view class='rowBox inter-rb'>
+          <view class='inter-high'>1</view>
+          <view class='inter-low'>待办事项</view>
+        </view>
+     </view>
+
+
+   <view>
+         <view class='iconBox'>
+
+
+       <!--每日记账跳转-->
+        <navigator url="../dailyAccounting/dailyAccounting" >
+         <view class='pericon'>
+         <!--hover-class="changestyle"-->
+           <image class='inicon1' style="width:55%;height:55%;" src='/images/iconBar/1.png'></image>
+         </view>
+        </navigator>
+
+        <!--财务跳转-->
+        <navigator url="../Finance/Finance" >
+         <view class='pericon'>
+            <image class='inicon2'  style="width:48%;height:48%;" src='/images/iconBar/2.png'></image>
+         </view>
+        </navigator>
+
+        <!-- 优选方案 -->
+        <navigator url="../plan/index/index" >
+          <view  class='pericon'>
+              <image class='inicon1' style="width:55%;height:55%;" src='/images/iconBar/3.png'></image>
+          </view>
+         </navigator>
+
+      <navigator url="../clac/index/index" >
+         <view class='pericon'>
+             <image class='inicon4' style="width:58%;height:58%;" src='/images/iconBar/4.png'></image>
+         </view>
+      </navigator>
+<navigator url="../report/report/report" >
+         <view class='pericon'>
+              <image class='inicon5' style="width:55%;height:55%;" src='/images/iconBar/5.png'></image>
+         </view>
+</navigator>
+     </view>
+
+     <view class='linetext'> 
+          <view class='pertext'><text>记账</text></view>
+          <view class='pertext'><text>财务</text></view>
+          <view class='pertext'><text>优选方案</text></view>
+          <view class='pertext'><text>小工具</text></view>
+          <view class='pertext'><text>其他</text></view>
+         </view>
+   </view>
+ 
+   <!--<view class='helpBox'>使用帮助</view>-->
+            
+
+                    <view class='newsBox'>
+                            <view class='innews'>
+                                      <view style='  display: flex;flex-direction:colcum; justify-content:space-between; width:700rpx;hight:60rpx;'>
+                                            <view class="icontext" >
+                                                  <view class='iconnews ' >
+                                                    <image class='news11' style='margin-right:25rpx;'src='/images/iconBar/00.png'></image>
+                                                  </view>
+                                                  <view class="news1 {{currentTab==0 ? 'on' : ''}}"data-current="0" bindtap="switchTab" > 消息栏</view>
+                                            </view> 
+
+                                            <view class="icontext"  >
+                                                  <view class="news1 {{currentTab==1 ? 'on' : ''}} "data-current="1" bindtap="switchTab" >使用帮助</view>
+                                            </view> 
+                                           
+                                      </view>
+                                      <view>
+                                         <swiper class="news2"  current="{{currentTab}}"  bindchange="swiperChange">  
+                                         
+                                          <swiper-item >  
+                                            <view >具体消息</view>
+                                          </swiper-item> 
+
+                                          <swiper-item > 
+                                          <view>让我来教教你怎么用吧</view>
+                                          </swiper-item> 
+                                        </swiper>
+                                      </view>
+                                     
+                            </view>   
+                    </view>
+
+                  
+        </view>
+ 
+</view>
+
+<view class="modal-box" hidden="{{flag}}" >
+
+    <view  > 
+          <view class='rowButton'>
+             <view  class="lButton" bindtap="hide">取消</view>
+             <view  class="rButton" bindtap="hide">确定</view>
+          </view>
+           <picker-view  indicator-style="height: 50rpx;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+                  
+                 <picker-view-column >
+                <view wx:for="{{years}}" style="line-height: 50px" class='center'>{{item}}年</view>
+                </picker-view-column>
+                
+                <picker-view-column >
+                <view wx:for="{{months}}" style="line-height: 50px"class='center'>{{item}}月</view>
+                </picker-view-column>
+
+            </picker-view>
+           
+           
+    </view>
+  </view>

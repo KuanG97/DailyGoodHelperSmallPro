@@ -1,0 +1,246 @@
+<view class="page">
+  <!--swiper导航栏-->
+         <view class="swiper-tab">
+              <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">资产</view>
+              <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">负债</view>
+              <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">收入</view>
+               <view class="swiper-tab-list {{currentTab==3? 'on' : ''}}" data-current="3" bindtap="swichNav">支出</view>
+        </view>
+       <!--<view class="swiper-tab-temp"></view>--> 
+        
+        
+        <!--下拉表-->
+        <view>
+          <swiper current="{{currentTab}}"  class="swiper-box" duration="300" style="height:1000rpx" bindchange="bindChange">
+
+            <swiper-item >
+                <!--资产总计-->
+                  <view class='allcount'>
+                     共0.00元
+                  </view>
+
+                  <view>
+                    <!--生活类资产-->
+                    <view class='font' style='position: relative;top: 20rpx;'> 生活资产类</view>
+                    <view class='management' style=' position: relative;top: 40rpx'>
+                    <!--第一行-->
+                      <view class='every'>
+                            <block wx:for="{{staType}}"  wx:for-index="index" wx:if="{{index<2}}" wx:for-item="value" >
+                                  <view class='row'  id="{{index}}" bindtap="obtainid" > 
+                                      <view class='col-in11'>{{value.statype}}</view>
+                                      <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>
+                            <!--bindtap="obtainid"去掉，没有页面跳转功能，只有同步功能-->
+                            <block wx:for="{{staType}}" wx:if="{{index>1 & index<4}}" wx:for-item="value" wx:for-index="index">
+                                  <view class='row' id="{{index}}"   > 
+                                    <view class='col-in1' style='background-color: rgba(249,170,53,0.7)' >关联自动同步</view>
+                                    <view class='col-in2' >{{value.statype}}</view>
+                                    <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>    
+                      </view>
+                       <!--第二行-->
+                      <view class='every'>
+                          <block wx:for="{{staType}}"  wx:for-index="index" wx:if="{{index>3&index<8}}" wx:for-item="value" >
+                                  <view class='row'  id="{{index}}" bindtap="obtainid" > 
+                                      <view class='col-in11'>{{value.statype}}</view>
+                                      <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>
+                      </view>
+
+                      <!--第三行-->
+                      <view style='display: flex;flex-direction:row; height: 170rpx;width:100%;'>
+                          
+                             <block wx:for="{{staType}}"  wx:for-index="index" wx:if="{{index>7 & index<9}}" wx:for-item="value" >
+                                  <view class='row'  id="{{index}}" bindtap="obtainid" > 
+                                      <view class='col-in11'>{{value.statype}}</view>
+                                      <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>
+
+                            <block wx:for="{{staType}}" wx:if="{{index>8 & index<10}}" wx:for-item="value" wx:for-index="index">
+                                  <view class='row' id="{{index}}" bindtap="obtainid"  style='margin-left:35rpx;' > 
+                                    <view class='col-in1' style='background-color: rgba(249,170,53,0.7)' >记账自动同步</view>
+                                    <view class='col-in2' >{{value.statype}}</view>
+                                    <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>       
+                      </view>
+                    </view>
+                    <!--生活类资产-->
+
+                    <!--理财类资产-->
+                    
+                     <view class='font' style='position: relative;top: 60rpx;'> 理财资产类</view>
+                    <!--第四行-->
+                     <view class='management' style=' position: relative;top: 75rpx'>
+                      <view class='every'>
+                            <block wx:for="{{staType}}"  wx:for-index="index" wx:if="{{index>9 & index<11}}" wx:for-item="value" >
+                                  <view class='row'  id="{{index}}" bindtap="obtainid" > 
+                                      <view class='col-in11'>{{value.statype}}</view>
+                                      <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>
+                             <!--分别跳转到股票、基金自动跟踪界面-->
+                            <block wx:for="{{staType}}" wx:if="{{index>10 & index<12}}" wx:for-item="value" wx:for-index="index">
+                                  <view class='row' id="{{index}}" bindtap="obtainfund"  > 
+                                    <view class='col-in1' style='background-color: rgba(249,170,53,0.7)' >收益自动跟踪</view>
+                                    <view class='col-in2' >{{value.statype}}</view>
+                                    <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>   
+                            <!--股票-->
+                            <block wx:for="{{staType}}" wx:if="{{index>11 & index<13}}" wx:for-item="value" wx:for-index="index">
+                                  <view class='row' id="{{index}}" bindtap="obtainfund"  > 
+                                    <view class='col-in1' style='background-color: rgba(249,170,53,0.7)' >收益自动跟踪</view>
+                                    <view class='col-in2' >{{value.statype}}</view>
+                                    <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>   
+
+                             <block wx:for="{{staType}}" wx:if="{{index>12 & index<14}}" wx:for-item="value" wx:for-index="index">
+                                  <view class='row' id="{{index}}" bindtap="obtainid"  > 
+                                    <view class='col-in1' style='background-color: rgba(249,170,53,0.7)' >记账自动同步</view>
+                                    <view class='col-in2' >{{value.statype}}</view>
+                                    <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>   
+                      </view>
+                     
+                    </view>
+                    <!--理财类资产-->
+                    <view style='color:#777;position:relative;top:60rpx;width:100%;line-height:27rpx; font-size:25rpx;text-align:left'>
+                      <text>
+                       注:每日记账中
+                       1.【工资】【兼职】收入 自动归类到 【银行卡】 资产    
+                       2.【其他】收入 自动归类到 【其他】 资产
+                       3.【理财】收入 自动归类到 【其他理财】 资产
+                            
+                      </text>
+                    </view>
+                </view>
+                
+                   
+            </swiper-item>
+
+            <!--负债-->
+            <swiper-item >
+                 <!--负债总计-->
+                  <view class='allcount' style='margin-left:25%'>
+                     共0.00元
+                  </view>
+                
+                 <view class='management' style='position: relative;top: 80rpx;' >
+                   <!--第一行-->
+                    <view class='every' >
+                            <block wx:for="{{staType}}"  wx:for-index="index" wx:if="{{index>13 & index<18}}" wx:for-item="value" >
+                                  <view class='row'  id="{{index}}" bindtap="obtainid" > 
+                                      <view class='col-in11'>{{value.statype}}</view>
+                                      <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>
+
+
+                    </view>
+                     <!--第二行-->
+                    <view class='every'>
+                          <block wx:for="{{staType}}"  wx:for-index="index" wx:if="{{index>17 &index <22}}" wx:for-item="value" >
+                                  <view class='row'  id="{{index}}" bindtap="obtainid" > 
+                                      <view class='col-in11'>{{value.statype}}</view>
+                                      <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>
+                    </view>
+                      <!--第三行-->
+                    <view class='every'>
+                           <block wx:for="{{staType}}"  wx:for-index="index" wx:if="{{index>21 &index <23}}" wx:for-item="value" >
+                                  <view class='row'  id="{{index}}" bindtap="obtainid" > 
+                                      <view class='col-in11'>{{value.statype}}</view>
+                                      <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>
+                        
+                    </view>
+                 </view>
+  
+            </swiper-item>
+            <!--负债-->
+
+            <swiper-item >
+                 <!--收入总计-->
+                  <view class='allcount' style='margin-left:50%'>
+                     共0.00元
+                  </view>
+                   <!--收入栏-->
+                   <view class='management' style='position: relative;top: 80rpx;' >
+                    <view class='every' >
+                            <block wx:for="{{staType}}" wx:if="{{index>22 &index < 27}}" wx:for-item="value" wx:for-index="index">
+                                  <view class='row' id="{{index}}" bindtap="obtainid" > 
+                                    <view class='col-in1' style='background-color: rgba(249,170,53,0.7)' >记账自动同步</view>
+                                    <view class='col-in2' >{{value.statype}}</view>
+                                    <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>    
+                   
+                    </view>
+                    
+                    <view style='color:#777;position:relative;top:20rpx;width:100%;line-height:30rpx; font-size:25rpx;text-align:left'>
+                      <text>
+                       注: 当前显示收入范围为【本月】    
+                      </text>
+                    </view>
+                 </view>
+            <!--收入栏-->
+            </swiper-item>
+             
+            <!--支出栏-->
+            <swiper-item >
+                 <!--支出总计-->
+                  <view class='allcount' style='margin-left:75%'>
+                     共0.00元
+                  </view>
+
+                   <view class='management' style='position: relative;top: 80rpx;' >
+                    <view class='every' >
+                            <block wx:for="{{staType}}" wx:if="{{index>26 &index <31}}" wx:for-item="value" wx:for-index="index">
+                                  <view class='row' id="{{index}}" bindtap="obtainid"> 
+                                    <view class='col-in1' style='background-color: rgba(249,170,53,0.7)' >记账自动同步</view>
+                                    <view class='col-in2' >{{value.statype}}</view>
+                                    <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>    
+                    </view>
+                    <view class='every'>
+                           <block wx:for="{{staType}}" wx:if="{{index>30 &index <35}}" wx:for-item="value" wx:for-index="index">
+                                  <view class='row' id="{{index}}" bindtap="obtainid"  > 
+                                    <view class='col-in1' style='background-color: rgba(249,170,53,0.7)' >记账自动同步</view>
+                                    <view class='col-in2' >{{value.statype}}</view>
+                                    <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>     
+                    </view>
+                    <view class='every'>
+                          <block wx:for="{{staType}}" wx:if="{{index>34 &index <36}}" wx:for-item="value" wx:for-index="index">
+                                  <view class='row' id="{{index}}" bindtap="obtainid"  > 
+                                    <view class='col-in1' style='background-color: rgba(249,170,53,0.7)' >记账自动同步</view>
+                                    <view class='col-in2' >{{value.statype}}</view>
+                                    <view class='col-in3' >{{value.balance}}</view>
+                                  </view>
+                            </block>           
+                    </view>
+                    <view style='color:#777;position:relative;top:20rpx;width:100%;line-height:30rpx; font-size:25rpx;text-align:left'>
+                      <text>
+                       注: 当前显示支出范围为【本月】    
+                      </text>
+                    </view>
+                 </view>
+            </swiper-item>
+          </swiper>
+        </view>
+
+
+ 
+ 
+</view>

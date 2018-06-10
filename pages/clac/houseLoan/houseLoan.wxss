@@ -1,0 +1,168 @@
+.content{
+  padding:30rpx;
+}
+button,input{
+  margin-top:40rpx;
+}
+.tableShow{
+  width: 690rpx;
+  height: auto;
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid #1FBBA6;
+  text-align: center;
+  border-radius: 20rpx;
+  background: #1FBBA6;
+}
+.sectipn__title{
+  width: 100%;
+  height: 80rpx;
+  font-size: 44rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #fff;
+}
+.caption{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.caption .sectipn__title{
+  font-size: 32rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.caption view{
+  box-sizing: content-box;
+  margin: 0;
+  width: 170rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.body{
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  color: #1FBBA6;
+  font-size: 28rpx;
+  font-weight: 100;
+  background: #fff;
+}
+.bodyRow{
+  width: 172.5rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.bodyCol{
+  display: flex;
+  flex-direction: column;
+  width: 172.5rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-bottom: 1px solid #1FBBA6;
+}
+.hide{
+  display: none;
+}
+.alert{
+  font-size: 22rpx;
+  color: red;
+}
+.btnOrange{
+  background: #F9AA33;
+  color: #fff;
+}
+.btnGreen{
+  background: #1FBBA6;
+   color: #fff;
+}
+.btn{
+  box-shadow: inset -10rpx -14rpx 14rpx rgba(0, 0, 0, 0.1);
+}
+input{
+  border-bottom: #8e8e8e solid 1px;
+}
+.helpBox{
+  width: 680rpx;
+  height: 50rpx;
+  position: relative;
+}
+.helpBox .help{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  color: #fff;
+  background: #F9AA33;
+  border-radius: 20rpx;
+  text-align: center;
+  font-weight: 600;
+  line-height: 40rpx;
+}
+.helpBox .modal{
+  height: 30rpx;
+  position: absolute;
+  top: 0;
+  right: 55rpx;
+  font-size: 22rpx;
+  padding: 3rpx 20rpx;
+  font-weight: 100;
+  border: 1px solid #F9AA33;
+  color: #F9AA33;
+  border-radius: 8rpx;
+}
+.helpBox .triangle{
+  width:0;
+  height: 0;
+  position: absolute;
+  bottom: 0rpx;
+  right: -12px;
+  font-weight: 100;
+  border-left: 6px solid #F9AA33;
+  border-top: 6px solid #fff;
+  border-bottom: 6px solid #fff;
+  border-right: 6px solid #fff;
+}
+
+/* 模态框 */
+.modalBg{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  background:rgba(0,0,0,0.4);
+  overflow: hidden;
+  z-index: 999;
+}
+.modalBox{
+  position: relative;
+  width: 640rpx;
+  margin: 100rpx auto;
+  padding: 40rpx;
+  background: #fff;
+  border-radius: 30rpx;
+  z-index: 1000;
+}
+.modalBox .closeIcon{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+.modalBox .title{
+  color: #1FBBA6;
+  line-height: 90rpx;
+}
+.modalBox .content{
+  padding: 0;
+  color: #757575;
+}
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color:transparent;
+}
+.orange{
+  color: #F9AA33;
+}

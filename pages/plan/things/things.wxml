@@ -1,0 +1,50 @@
+<view class='swiperText title'>{{Title}}</view>
+<swiper indicator-dots='true' circular="true" current="{{current}}" interval="5000" duration="1000" class='swiper' bindchange="getCurrent">
+  <block wx:for="{{things}}" wx:key="things">
+    <swiper-item class="swiperItem">
+      <view class='swiperText tTitle'>{{things[index].brand}}·{{things[index].thing}}</view>
+      <image src="{{things[index].imgUrls}}" class="swiperImage"/>
+      <view class='swiperText bTitle'>{{things[index].modal}}</view>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class='dirBox left' id='left' bindtap='changSwiper'>
+  <image src='/images/things/left.png'></image>
+</view>
+<view class='dirBox right' id='right' bindtap='changSwiper'>
+  <image src='/images/things/right.png'></image>
+</view>
+
+<view class='msgBox'>
+  <view class='helpBox'>
+    <view class='help' bindtap='open'>?</view>
+  </view>
+  <view class='col'>
+    <view class='msgTitle msgTitle1'>价格</view>
+    <view class='msgInput msgInput1'><text>{{things[current].price}}元</text></view>
+  </view>
+  <view class='col'>
+    <view class='msgTitle msgTitle2'>月供</view>
+    <view class='msgInput msgInput2'><text>{{monthy[current]}}元</text><text class='sText'  decode="{{true}}">&ensp;x{{things[current].time}}月</text></view>
+    <view class=''></view>
+  </view>
+</view>
+<!-- <view class='swiperText tTitle alert'>*下一步自定义跟进计划</view> -->
+<button class="button" type='primary' bindtap='planNext'>下一步</button>
+<button class="button" type='primary' bindtap='planAuto'>自定义其他梦想物</button>
+
+<view class='{{displayFlag?"":"hide"}} modalBg' bindtap='close'>
+  <view class='modalBox'>
+  <image src='/images/things/close.png' class='closeIcon' bindtap='close'></image>
+  <scroll-view scroll-y style="height: 450px;">
+      <view class='title'>帮助说明</view>
+      <view class='content'>该页梦想物计划此处显示的价格参考官网的价格，此处显示的月供为建议月供额*对应建议月供期数。</view>
+      <view class='title'>下一步</view>
+      <view class='content'>用户可选择系统推荐梦想之物的方案，而用户可根据个人情况选择定义计划实现日期。并进行跟进计划的记录。</view>
+      <view class='title'>自定义其他梦想物</view>
+      <view class='content'>可自定义其他梦想物的跟进计划。</view>
+      <text class='orange'>（其中，跟进梦想物计划我们现下只提供建议以及跟进记录，并不提供存款，购买基金等服务）</text>
+    </scroll-view>
+  </view>
+</view>

@@ -6,17 +6,6 @@ var lineChart2 = null;
 
 Page({
   data: {
-    // picker数据
-    weekPicker: [],
-    weekIndex: 0,
-    monthPicker: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
-    monthIndex: 0,
-    yearPicker: [],
-    yearIndex: 0,
-    getDate: [],
-    setMonth:"",
-    setYear: "",
-    setWeek: "",
     //Tab标签栏
     id3:"week",
     id4:"month",
@@ -30,83 +19,112 @@ Page({
     week:true,
     month:false,
     year: false,
-    // 页面配置
-    winWidth: 0,
-    winHeight: 0,
-    // tab切换  
     currentTab: 0,  
+    // picker 时间数据
+    weekPicker: [],//getweekPicker func（）初始化
+    weekIndex: 0,
+    monthPicker: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+    monthIndex: 0,
+    yearPicker: [],
+    yearIndex: 0,
+    getDate: [],//arr["年","月","日","今年的第几天","今年的第几周"]
+    setMonth: "",
+    setYear: "",
+    setWeek: "",
     //列表
     reportListZ: [
       {
-        img: "../../../img/1.jpg",
+        img: "/images/1.jpg",//title对应的icon图片
         title: "食物",
-        msg: "人生没有如果，只有后果和结果，",
-        time: "2022年 10月 9日 ",
+        msg: "人生没有如果，只有后果和结果，",//备注
+        time: "2022-10-9",
         price: "50",
       },
       {
-        img: "../../../img/1.jpg",
+        img: "/images/1.jpg",
         title: "食物",
         msg: "人生没有如果，只有后果和结果，",
-        time: "2022年 10月 9日 ",
+        time: "2022-10-9",
         price: "5000",
       }
     ],
     reportListM: [
       {
-        img: "../../../img/1.jpg",
+        img: "/images/1.jpg",
         title: "娱乐",
         msg: "人生没有如果，只有后果和结果，",
-        time: "2022年 10月 9日 ",
+        time: "2022-10-9",
         price: "50",
       },
       {
-        img: "../../../img/1.jpg",
+        img: "/images/1.jpg",
         title: "服饰",
         msg: "人生没有如果，只有后果和结果，",
-        time: "2022年 10月 9日 ",
-        price: "500000",
-      },
-      {
-        img: "../../../img/1.jpg",
-        title: "服饰",
-        msg: "人生没有如果，只有后果和结果，",
-        time: "2022年 10月 9日 ",
+        time: "2022-10-9",
         price: "500000",
       }
     ],
     reportListM: [
       {
-        img: "../../../img/1.jpg",
+        img: "/images/1.jpg",
         title: "娱乐",
         msg: "人生没有如果，只有后果和结果，",
-        time: "2022年 10月 9日 ",
+        time: "2022-10-9",
         price: "50",
       }
     ],
   reportListY: [
     {
-      img: "../../../img/1.jpg",
+      img: "/images/1.jpg",
       year: "2018",
       month:"1",
-      msg: "人生没有如果，只有后果和结果，",
+      spanding: "500000000",
+      income: "50",
+    }, {
+      img: "/images/1.jpg",
+      year: "2018",
+      month: "1",
       spanding: "500000000",
       income: "50",
     },
   ],
-    // 图表参数
-    weekTagName:"当天支出",
-    monthTagName: "该月支出",
-    yearTagName: "该月支出",
-    monthSum:[],
-    weekData:[500,130,447.2,271,211.3,500,170],
-    monthData: [5, 44.2, 5, 17],
-    yearData: [5000,11000,24000,110,13000, 4400.2, 2100,1500,910, 110.99, 750, 1700],
-    weekXData: ["一", "二", "三", "四", "五", "六", "日"],
-    monthXData: ["第1周", "第2周", "第3周", "第4周", "第5周", "第6周"],
-    yearXData: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+  listYIndex:null,
+  // 图表展示固定参数
+  weekTagName:"当天支出",
+  monthTagName: "该月支出",
+  yearTagName: "该月支出",
+  monthSum: [],
+      // 图表展示固定参数之X轴
+  weekXData: ["一", "二", "三", "四", "五", "六", "日"],
+  monthXData: ["第1周", "第2周", "第3周", "第4周", "第5周", "第6周"],
+  yearXData: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+  //图表展示参数之对应价格
+  weekData:[500,130,447.2,271,211.3,500,170],
+  monthData: [5, 44.2, 5, 17],
+  yearData: [5000,11000,24000,110,13000, 4400.2, 2100,1500,910, 110.99, 750, 1700],
   },
-  // 绑定picker数值
+
+  /*
+   *绑定修改
+   */
+  bindModifyAccount:function(e){
+    var id = e.currentTarget.id;
+    console.log("选中的列表项：" + id );
+    wx.navigateTo({
+      url: '../modify/modify?index=' + id + '&list=' + JSON.stringify(this.data.reportListZ) ,
+    })
+  },
+  bindModifyAccountM:function(e){
+    var id = e.currentTarget.id;
+    console.log("选中的列表项：" + id );
+    wx.navigateTo({
+      url: '../modify/modify?index=' + id + '&list=' + JSON.stringify(this.data.reportListM) ,
+    })
+  },
+
+  /*
+   *绑定点击picker数值
+   */
   bindWeekPickerChange: function (e) {
     console.log('week picker发送选择改变，携带值为', e.detail.value)
     this.setData({
@@ -126,8 +144,9 @@ Page({
     })
   },
 
+
  /*
-  * 点击图表获取对应信息
+  * 点击图表获取对应点信息
   */
   touchHandler: function (e) {
     console.log(lineChart.getCurrentDataIndex(e));
@@ -156,7 +175,7 @@ Page({
 
 
  /*
-  * 图表X轴
+  * 图表X轴初始化
   */
   createSimulationData: function () {
     var categories = [];
@@ -335,6 +354,7 @@ Page({
       getDate: Date[2],
     })
   },
+
 
   /*
   *点击tab切换

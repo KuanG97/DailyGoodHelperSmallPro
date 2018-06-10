@@ -1,0 +1,23 @@
+<view class="container">
+  <view class='session'>
+    <view class='inputTitle'>类型</view>
+    <input placeholder="" value='{{list[index].title}}' auto-focus/>
+  </view>
+  <view class='session'>
+    <view class='inputTitle'>时间</view>
+      <picker mode="date" value="{{date}}" start="2018-05-20" bindchange="bindDateChange">
+        <view class="picker">
+           {{date}}
+        </view>
+      </picker>
+  </view>
+  <view class='session'>
+    <view class='inputTitle'>金额</view>
+    <input placeholder="" value='{{list[index].price}}' type="number"/>
+  </view>
+  <view class='session'>
+    <view class='inputTitle'>备注</view>
+    <input placeholder="" value='{{list[index].msg}}'/>
+  </view>
+  <button type='primary' bindtap='modifySuccess'>修改记录</button>
+</view>

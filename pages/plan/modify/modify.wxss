@@ -1,0 +1,6 @@
+/* pages/plan/modify/modify.wxss */
+@import "../../report/modify/modify.wxss";
+
+.btnRed{
+  background: #D65258 !important; 
+}

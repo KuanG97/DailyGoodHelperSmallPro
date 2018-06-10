@@ -1,0 +1,107 @@
+<!--pages/clac/salaryClac/salaryClac.wxml-->
+<view class="content">
+  <view class='helpBox'>
+    <view class='modal'>
+      了解工资计算器<view class='triangle'></view>
+    </view>
+    <view class='help' bindtap='open'>?</view>
+  </view>
+  <view class='tableShow marBot30'>
+    <view class='sectipn__title'>{{resultTitle}}数据总信息</view>
+    <view class='caption'>
+      <view class='sectipn__title'>月工资</view>
+      <view class='sectipn__title'>公积金基数</view>
+      <view class='sectipn__title'>个人缴纳</view>
+      <view class='sectipn__title'>单位缴纳</view>
+      <view class='sectipn__title'>税后工资</view>
+    </view>
+    <view class="body bg">
+        <view class='bodyRow'>{{X}}元</view>
+        <view class='bodyRow'>{{Rate*X*0.01}}元</view>
+        <view class='bodyRow'>{{R}}元</view>
+        <view class='bodyRow'>{{U}}元</view>
+        <view class='bodyRow'>{{salary}}元</view>
+    </view>
+  </view>
+
+  <!-- input输入数据 -->
+  <view>月基本工资 <text class="{{Show?'alert':'hide'}}">*请填写大于0的数字</text></view>
+  <input id='X' placeholder='请输入月基本工资' bindblur='getRate'></input>
+  <view class='marTop40'>公积金基数(默认100%)</view>
+  <view class='relative'><input id='Rate' placeholder='请输入公积金基数（80~300）' bindblur='getRate'></input><text>%</text></view>
+    <button class='btnOrange' hover-class='btn' type='info' bindtap='clac'>计算最终所得工资</button>
+
+  
+  <view class='tableShow marTop40'>
+    <view class='sectipn__title'>自定义五险一金比例</view>
+    <view class='caption'>
+      <view class='sectipn__title'>类型</view>
+      <view class='sectipn__title'>个人比例</view>
+      <view class='sectipn__title'>个人缴纳</view>
+      <view class='sectipn__title'>单位比例</view>
+      <view class='sectipn__title'>单位缴纳</view>
+    </view>
+    <view class="body bg">
+        <view class='bodyRow'>养老</view>
+        <view class='bodyRow'><input id='person-0' value='{{oldPR}}' bindblur='getRate'></input><text>%</text></view>
+        <view class='bodyRow'>{{person[0]}}元</view>
+        <view class='bodyRow'><input id='unit-0' value='{{oldUR}}' bindblur='getRate'></input><text>%</text></view>
+        <view class='bodyRow'>{{unit[0]}}元</view>
+    </view>
+    <view class="body bg">
+        <view class='bodyRow'>医疗</view>
+        <view class='bodyRow'><input id='person-1' value='{{medicalPR}}' bindblur='getRate'></input><text>%</text></view>
+        <view class='bodyRow'>{{person[1]}}元</view>
+        <view class='bodyRow'><input id='unit-1' value='{{medicalUR}}' bindblur='getRate'></input><text>%</text></view>
+        <view class='bodyRow'>{{unit[1]}}元</view>
+    </view>
+    <view class="body bg">
+        <view class='bodyRow'>失业</view>
+        <view class='bodyRow'><input id='person-2' value='{{unemploymentPR}}' bindblur='getRate'></input><text>%</text></view>
+        <view class='bodyRow'>{{person[2]}}元</view>
+        <view class='bodyRow'><input id='unit-2' value='{{unemploymentUR}}' bindblur='getRate'></input><text>%</text></view>
+        <view class='bodyRow'>{{unit[2]}}元</view>
+    </view>
+    <view class="body bg">
+        <view class='bodyRow'>工伤</view>
+        <view class='bodyRow'><input id='person-3' value='{{injuryPR}}' bindblur='getRate'></input><text>%</text></view>
+        <view class='bodyRow'>{{person[3]}}元</view>
+        <view class='bodyRow'><input id='unit-3' value='{{injuryUR}}' bindblur='getRate'></input><text>%</text></view>
+        <view class='bodyRow'>{{unit[3]}}元</view>
+    </view>
+    <view class="body bg">
+        <view class='bodyRow'>生育</view>
+        <view class='bodyRow'><input id='person-4' value='{{birthPR}}' bindblur='getRate'></input><text>%</text></view>
+        <view class='bodyRow'>{{person[4]}}元</view>
+        <view class='bodyRow'><input id='unit-4' value='{{birthUR}}' bindblur='getRate'></input><text>%</text></view>
+        <view class='bodyRow'>{{unit[4]}}元</view>
+    </view>
+    <view class="body bg">
+        <view class='bodyRow'>公积金</view>
+        <view class='bodyRow'><input id='person-5' value='{{afPR}}' bindblur='getRate'></input><text>%</text></view>
+        <view class='bodyRow'>{{person[5]}}元</view>
+        <view class='bodyRow'><input id='unit-5' value='{{afUR}}' bindblur='getRate'></input><text>%</text></view>
+        <view class='bodyRow'>{{unit[5]}}元</view>
+    </view>
+  </view>
+
+</view>
+
+
+<view class='{{displayFlag?"":"hide"}} modalBg'>
+  <view class='modalBox'>
+  <image src='/images/things/close.png' class='closeIcon' bindtap='close'></image>
+  <scroll-view scroll-y style="height: 450px;">
+      <view class='title'>五险一金计算</view>
+      <view class='content'>各保险=基本工资×各险个人缴纳比率+基本工资×各险单位缴纳比率;</view>
+      <view class='content'>公积金=住房公积金基数×个人缴纳比率+住房公积金基数×单位缴纳比率;</view>
+      <view class='orange'>（注意！基本工资=上一年度平均月工资；住房公积金基数为基本工资的80%~300%；）</view>
+      <view class='title'>税后工资计算</view>
+      <view class='content'>应纳税所得额 = 基本工资－五险一金(个人缴纳部分)－起征点（3500元）;</view>
+      <view class='content'>税后工资=应纳税所得额×（1-对应级数税率）+对应级数速算扣除数+起征点（3500元）;</view>
+      <image src='/images/things/salaryTable.jpg' class='salaryTable'></image>
+      <view class='title'>关于个人缴纳与单位缴纳的问题</view>
+      <view class='content'>每个地区的五险一金比例各不相同，请按照实际设置比例。其中个人缴纳部分一般从个人工资中扣除，放进个人账户余额中，只有部分可以按照一定条件下可提出来；单位缴纳部分则由单位自费，该部分资金是无法提取现金的。</view>
+    </scroll-view>
+  </view>
+</view>

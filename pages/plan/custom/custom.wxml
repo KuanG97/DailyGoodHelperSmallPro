@@ -1,0 +1,37 @@
+<form  bindsubmit='searchBox'>
+<view class="container">
+  <view class='session'>
+    <view class='inputTitle'>自定义梦想物</view>
+    <input placeholder="请输入你的梦想物具体名称" value='' name="thing" bindblur='getThing'/>
+  </view>
+  <view class='session'>
+    <view class='inputTitle'>价格</view>
+    <input placeholder="请输入你的梦想物估价" value='' type="number" name="price" bindblur='getPrice'/>
+  </view>
+</view>
+
+  <view class='content marTop30'>
+    <!-- 时间picker -->
+    <view class='pickerBox'>
+      <view class="pickerBTitle">计划最终实现时间</view>
+      <view class="pickerSTitle">距离梦想"<text class='special'>{{things.thing}}</text>"还有<text class='special'>{{things.week}}</text>周</view>
+      <picker mode="date" value="{{things.time}}" start="{{setStartToday}}" end="{{setEndToday}}" bindchange="bindDateChange">
+        <view class="picker">
+          <text>{{things.time}}</text><image class='pickerImg' src='/images/things/Bright.png'></image>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 显示框 -->
+    <view class='msgBox'>
+      <view class='tTitle'>建议每周存款的金额</view>
+      <view class='price'>{{things.priceAverage}}<text class='sText' decode='true'> 元</text></view>
+      <view class='bTitle'>若定投货币基金还可获得额外收益</view>
+    </view>
+    
+  </view>
+
+<button hover-class='button' >确定跟进计划</button>
+
+</form>
+

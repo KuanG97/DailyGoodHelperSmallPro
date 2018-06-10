@@ -1,5 +1,5 @@
 <template name="reportList">
-<view class='msgCell'>
+<view class='msgCell' data-id="{{index}}">
   <image class='msgImg' src='{{img}}'></image>
   <view class='msgType'>{{title}}</view>
   <view class='msgTime'>{{time}}</view>

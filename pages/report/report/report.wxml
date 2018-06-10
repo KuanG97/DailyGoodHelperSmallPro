@@ -35,8 +35,13 @@
         <!-- 列表模板 -->
         <import src="../../template/reportList/reportList.wxml"/>
         <view class='marTop28'>
-          <view wx:for="{{reportListZ}}" wx:for-item="item">
-            <template is="reportList" data="{{...item}}"></template>
+          <view wx:for="{{reportListZ}}"  wx:for-index="idx" wx:for-item="reportListZ" wx:key="reportListZ">
+            <view class='msgCell' bindtap='bindModifyAccount' id='{{idx}}'>
+              <image class='msgImg' src='{{reportListZ.img}}'></image>
+              <view class='msgType'>{{reportListZ.title}}</view>
+              <view class='msgTime'>{{reportListZ.time}}</view>
+              <view class='msgPrice'>-{{reportListZ.price}}</view>
+            </view>
           </view>
         </view>
     </view><!-- 周END -->
@@ -47,8 +52,13 @@
         <!-- 列表模板 -->
         <import src="../../template/reportList/reportList.wxml"/>
         <view class='marTop28'>
-          <view wx:for="{{reportListM}}" wx:for-item="item">
-            <template is="reportList" data="{{...item}}"></template>
+          <view wx:for="{{reportListM}}" wx:for-index="idn" wx:for-item="reportListM"  wx:key="reportListM">
+            <view class='msgCell' bindtap='bindModifyAccountM' id='{{idn}}'>
+              <image class='msgImg' src='{{reportListM.img}}'></image>
+              <view class='msgType'>{{reportListM.title}}</view>
+              <view class='msgTime'>{{reportListM.time}}</view>
+              <view class='msgPrice'>-{{reportListM.price}}</view>
+            </view>
           </view>
         </view>
     </view><!-- 月END -->
@@ -59,10 +69,9 @@
         <!-- 列表模板 -->
         <import src="../../template/reportYList/reportYList.wxml"/>
         <view class='marTop28'>
-          <view wx:for="{{reportListY}}" wx:for-item="item">
+          <view wx:for="{{reportListY}}" wx:for-index="idy" wx:for-item="item" wx:key="reportListY">
             <template is="reportList" data="{{...item}}"></template>
           </view>
         </view>
     </view><!-- 年END -->
-
 </view><!-- contain -->

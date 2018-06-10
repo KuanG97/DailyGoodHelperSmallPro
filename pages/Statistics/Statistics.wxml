@@ -1,0 +1,50 @@
+<view class='page1'>
+
+     <!-- 新建记录 -->
+<view class="add-page">
+
+    <view class="mod-a">
+        <!-- 分类 -->
+        <view class="mod t-name" bindtap=''>
+            <text class="key">分类</text>
+            <text style='text-align=right'>{{statype1[getid].typeIs}}</text>  
+        </view>         
+    </view>
+
+     <view class="mod-a mt20">
+      
+        <!-- 名称 -->
+        <view class="mod t-address" bindtap="chooseLocation">
+            <text class="key">名称</text>
+            <!--<text style='text-align=right'>{{statype1[getid].statype}}</text>-->
+           <input bindinput="bindKeyInput" class="input" maxlength="100"  placeholder="{{statype1[getid].statype}}" value='{{statype1[getid].statype}}'/>
+        </view>
+
+        <!-- 金额 -->
+        <view class="mod t-sign-time">
+            <text class="key">金额（单位元）</text> 
+           <input bindinput="bindKeyInput" class="input" maxlength="100"  placeholder="输入金额" />      
+        </view>
+
+        <!-- 备注 -->
+        <view class="mod t-early">
+            <text class="key">备注</text>
+             <input bindinput="bindKeyInput" class="input" maxlength="100" placeholder="输入备注" />
+        </view>
+      </view>
+</view>
+
+
+
+
+<!-- 创建按钮 -->
+    <view class="create">
+        <button class="btn {{creating ? 'disabled' : ''}}" bindtap="bindSubmit">{{button.txt}}</button>
+    </view>
+    
+    <!-- 提示信息 -->
+    <modal confirm-text="确定"no-confirm  no-cancel hidden="{{modalHidden}}" mask bindconfirm="modalChange">
+        请完善新建记录信息
+    </modal>
+
+</view>

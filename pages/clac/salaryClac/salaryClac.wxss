@@ -1,0 +1,37 @@
+/* pages/clac/salaryClac/salaryClac.wxss */
+@import "../houseLoan/houseLoan.wxss";
+.salaryTable{
+  width: 100%;
+}
+.bodyRow{
+  position: relative;
+  color: #F9AA33;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.bodyRow input{
+  height: 60rpx;
+  line-height: 80rpx;
+  padding: 0;
+  margin-top: 10rpx;
+  border: 1px solid #1FBBA6;
+  border-radius:10rpx;
+}
+.bodyRow text{
+  position: absolute;
+  top: 0;
+  right: 10rpx;
+  line-height: 80rpx;
+}
+.relative{
+  position: relative;
+  width: 560rpx;
+}
+.relative text{
+  position: absolute;
+  color: #F9AA33;
+  font-size: 40rpx;
+  line-height: 70rpx;
+  top: 0;
+  right: 20rpx;
+}

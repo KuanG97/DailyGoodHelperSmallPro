@@ -35,7 +35,7 @@ Page{
   width: 160rpx;
   font-size: 40rpx;
   line-height: 70rpx;
-  color: #3399ff;
+  color: #1FBBA6;
 }
 .msgYType{
   left: 145rpx;

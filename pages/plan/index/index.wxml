@@ -1,0 +1,68 @@
+<view class='content'>
+  <view class='helpBox'>
+    <view class='modal'>
+      了解优选方案<view class='triangle'></view>
+    </view>
+    <view class='help' bindtap='open'>?</view>
+  </view>
+  <view class='section'>
+    <view class='title'>梦想计划</view>
+    <view class='row'>
+      <view class='col' hover-class='text2' id='{{id1}}' bindtap='bindClac'>
+        <image src='{{url1}}'></image>
+        <view class='text'>物计划</view>
+      </view>
+      <view class='col' hover-class='text2' id='{{id2}}' bindtap='bindClac'>
+        <image src='{{url2}}'></image>
+        <view class='text'>钱计划</view>
+      </view>
+      <view class='col' hover-class='text2' id='{{id3}}' bindtap='bindClac'>
+        <image src='{{url3}}'></image>
+        <view class='text'>店开发中..</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='{{none?"":"hidden"}} none'>*--暂无梦想计划--*</view>
+
+<view wx:for="{{things}}"  wx:for-index="idx" wx:for-item="things" wx:key="things">
+  <view class='thingCard'>
+    <image class='helpIcon' src='/images/things/setting.png' data-idx='{{idx}}' bindtap='modify' ></image>
+    <!-- <view class='icon'>梦想物</view> -->
+    <view class='circle left'></view>
+    <view class='circle right'></view>
+    <view class='tTitle'>{{things.thing}}</view>
+    <view class='row'>
+      <view class='col'>
+        <view class='msg'>还差数额：{{things.price}}元</view>
+        <view class='msg'>目标时间：{{things.time}}</view>
+        <view class='msg'>总期数：{{things.week}}周期</view>
+      </view>
+      <view class='colHr'></view>
+      <view class='col textTndent'>
+        <view class='msg'>每期建议存款：{{priceAverage[idx]}}元</view>
+        <view class='msg'>剩下期数：{{remainWeek[idx]}}周期</view>
+        <view class='msg'>完成进度:{{things.money}}<text class='green'>({{progress[idx]}}%)</text></view>
+      </view>
+    </view>
+    <button class='btn' bindtap='clockIn' data-idx='{{idx}}'>打卡</button>
+  </view>
+</view>
+
+
+<view class='{{displayFlag?"":"hide"}} modalBg' bindtap='close'>
+  <view class='modalBox'>
+  <image src='/images/things/close.png' class='closeIcon' bindtap='close'></image>
+  <scroll-view scroll-y style="height: 450px;">
+      <view class='title'>帮助说明</view>
+      <view class='content'>优选方案是“最优帮”的一大特色功能，目标是为用户提供建议方案与梦想进度跟进记录的功能，并不提供存款，购买基金等服务。其中主要有物计划和钱计划以及后续将开发的店计划等功能。</view>
+      <view class='title'>物计划</view>
+      <view class='content'>物计划为用户提供按期数计算建议的周期存款额，并记录每次自己存款后的数据以及时间，以便跟进梦想物的计划。<text class='orange'>(提高用户有更好的存款意识，了解梦想物的进度)</text></view>
+      <view class='title'>钱计划</view>
+      <view class='content'>可自定义目标时间内存款计划，记录每次存款数额以及时间。<text class='orange'>（正在开发：若为定投类存款，可按照年利率计算额外赚取金额。）</text></view>
+      <view class='title'>店计划</view>
+      <view class='content'>店计划，根据用户目标开店类型、要求以及地点，大约估值以及后期发展营业需要达到的参数。并且可<text class='orange'>(正在开发中。)</text></view>
+    </scroll-view>
+  </view>
+</view>

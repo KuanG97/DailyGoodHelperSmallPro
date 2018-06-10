@@ -1,0 +1,83 @@
+page{
+  background: #eee;
+}
+.content{
+  background: #fff;
+  width: 750rpx;
+  padding: 0;
+  margin: 0;
+}
+.pickerBox{
+  position: relative;
+  width: 750rpx;
+  height: 160rpx;
+  border-bottom: 1px solid #e3e3e3;
+}
+.pickerBTitle{
+  position: absolute;
+  top: 10rpx;
+  left: 25rpx;
+  font-size: 44rpx;
+  line-height: 80rpx;
+}
+.pickerSTitle{
+  position: absolute;
+  bottom: 10rpx;
+  left: 25rpx;
+  font-size: 34rpx;
+  line-height: 74rpx;
+  font-weight: 100;
+  color: #757575;
+}
+.picker text{
+  position: absolute;
+  top: 0;
+  right: 100rpx;
+  line-height: 160rpx;
+}
+.pickerImg{
+  position: absolute;
+  top: 30rpx;
+  right: 0;
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+
+.msgBox{
+  width: 750rpx;
+  height: 350rpx;
+  padding:35rpx;
+  text-align: center;
+}
+.tTitle{
+  font-size: 42rpx;
+  color: #1FBBA6;
+}
+.price{
+  font-size: 70rpx;
+  line-height: 210rpx;
+  color: #F9AA33;
+}
+.sText{
+  font-weight: 100;
+  font-size: 40rpx;
+  color: #757575;
+}
+.bTitle{
+  font-weight: 100;
+  color: #757575;
+}
+button{
+  width: 700rpx;
+  height: 90rpx;
+  margin: 35rpx auto 0;
+  background: #F9AA33;
+  color: #fff;
+  line-height: 90rpx;
+  border-radius: 45rpx;
+}
+.button{
+  box-shadow: inset 10px 10px 12px rgba（0,0,0,0.3）;
+}

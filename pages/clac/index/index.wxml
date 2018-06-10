@@ -1,0 +1,30 @@
+<view class='content'>
+  <view class='section'>
+    <view class='title'>智能计算器</view>
+    <view class='row'>
+      <view class='col' hover-class='text2' id='{{id1}}' bindtap='bindClac'>
+        <image src='{{url1}}'></image>
+        <view class='text'>房贷计算器</view>
+      </view>
+      <view class='col' hover-class='text2' id='{{id2}}' bindtap='bindClac'>
+        <image src='{{url2}}'></image>
+        <view class='text'>工资计算器</view>
+      </view>
+      <!-- <view class='col' hover-class='text2' id='{{id3}}' bindtap='bindClac'>
+        <image src='{{url3}}'></image>
+        <view class='text'>身体计算器</view>
+      </view> -->
+      <view class='col' hover-class='text2' id='{{id4}}'>
+        <image src='{{url4}}'></image>
+        <view class='text'></view>
+      </view>
+    </view>
+  </view>
+
+  <view class='section marTop30'>
+    <view class='title'>选择困难症必备选择器</view>
+    <view class='row'>
+      <view class='hint'>功能太过精彩，正在开发中...</view>
+    </view>
+  </view>
+</view>

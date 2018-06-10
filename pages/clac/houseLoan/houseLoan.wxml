@@ -1,0 +1,78 @@
+<view class="content">
+  <view class='helpBox'>
+    <view class='modal'>
+      了解等额本息，等额本金<view class='triangle'></view>
+    </view>
+    <view class='help' bindtap='open'>?</view>
+  </view>
+  <view class='tableShow marBot30'>
+    <view class='sectipn__title'>{{resultTitle}}数据总信息</view>
+    <view class='caption'>
+      <view class='sectipn__title'>贷款金额</view>
+      <view class='sectipn__title'>贷款期限</view>
+      <view class='sectipn__title'>总利息</view>
+      <view class='sectipn__title'>总月供</view>
+    </view>
+    <view class="body bg">
+        <view class='bodyRow'>{{X}}万元</view>
+        <view class='bodyRow'>{{Y*12}}个月</view>
+        <view class='bodyRow'>{{totalInterest}}元</view>
+        <view class='bodyRow'>{{totalMonthly}}元</view>
+    </view>
+  </view>
+
+  <!-- input输入数据 -->
+  <view>贷款金额（万） <text class="{{(tableShow==2||tableShow==4)?'alert':'hide'}}">*请填写大于0的数字</text></view>
+  <input placeholder='请输入贷款金额（万）' bindinput='bindInput1'></input>
+  <view class='marTop40'>贷款期限（年）<text class="{{(tableShow==3||tableShow==4)?'alert':'hide'}}">*请填写大于0的数字</text></view>
+  <input placeholder='请输入贷款期限（年）' bindinput='bindInput2'></input> 
+  <button class='btnGreen' hover-class='btn' type='info' bindtap='equRate'>等额本息</button>
+  <button class='btnOrange' hover-class='btn' type='info' bindtap='equCapital'>等额本金</button>
+
+  <view class="marTop30 marBot30 {{(tableShow==0||tableShow==2||tableShow==3||tableShow==4)?'hide':'tableShow'}}">
+    <view class='sectipn__title'>{{resultTitle}}详细计划表</view>
+      <view class='caption'>
+        <view class='sectipn__title'>月份</view>
+        <view class='sectipn__title'>月还本金</view>
+        <view class='sectipn__title'>月还利息</view>
+        <view class='sectipn__title'>月供</view>
+      </view>
+      <view class="body bg">
+          <view class='bodyRow'>
+            <view class='bodyCol'  wx:for="{{result2}}"  wx:key="month">
+              {{index+1}}月
+            </view>
+          </view>
+          <view class='bodyRow'>
+            <view class='bodyCol' wx:for="{{result1}}" wx:key="cash">
+              {{item}}
+            </view>
+          </view>
+          <view class='bodyRow'>
+            <view class='bodyCol' wx:for="{{result2}}"  wx:key="interest">
+             {{item}}
+            </view>
+          </view>
+          <view class='bodyRow'>
+            <view class='bodyCol' wx:for="{{result3}}"  wx:key="all">
+             {{item}}
+            </view>
+          </view>
+      </view>
+  </view>
+</view>
+
+
+<view class='{{displayFlag?"":"hide"}} modalBg' bindtap='close'>
+  <view class='modalBox'>
+  <image src='/images/things/close.png' class='closeIcon' bindtap='close'></image>
+  <scroll-view scroll-y style="height: 450px;">
+      <view class='title'>等额本息</view>
+      <view class='content'>每月还款额固定，其中包含了每月应偿还的利息及本金。</view>
+      <view class='title'>等额本金</view>
+      <view class='content'>每月偿还本金固定，另外再加上应偿还的利息。</view>
+      <view class='title'>额外小知识</view>
+      <view class='content'>在同等条件下，等额本金方式所偿还的总利息要比等额本息少，这个是等额本金的优点。但等额本金在开始几年的月供金额要比等额本息高，所以在刚开始还款的时候资金压力大些，而这个正是等额本金的缺点。但如果提前还款，那么两种方式最终的利息总额差距不大。<text class='orange'>（其中本计算器使用的利率为基准利率4.75%）</text></view>
+    </scroll-view>
+  </view>
+</view>

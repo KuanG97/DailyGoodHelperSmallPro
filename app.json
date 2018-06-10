@@ -1,14 +1,37 @@
 {
   "pages":[
+    "pages/plan/money/money",
+    "pages/homePage/homePage",
+    
+
+    "pages/clac/index/index",
+    "pages/clac/Statistics/Statistics",
+    "pages/clac/healthClac/healthClac",
+    "pages/clac/houseLoan/houseLoan",
+    "pages/clac/salaryClac/salaryClac",
+
+    "pages/plan/things/things",
+    "pages/plan/clockIn/clockIn",
+    "pages/plan/custom/custom",
+    "pages/plan/next/next",
+    
+    "pages/plan/index/index",
+    "pages/plan/modify/modify",
+
+    "pages/Finance/Finance",
+    "pages/dailyAccounting/dailyAccounting",
+    "pages/Statistics/Statistics",
+
     "pages/report/report/report",
     "pages/report/reportIn/reportIn",
+    "pages/report/modify/modify",
     "pages/index/index",
     "pages/logs/logs"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "WeChat"
   }
 }
